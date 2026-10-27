@@ -1,42 +1,68 @@
-# ProvAI
 
-Aplicação de visagismo com front-end TanStack/React e API Flask.
+# ProvAI — Visagismo com IA
 
-## Funcionalidades Implementadas
+Aplicação web de visagismo que ajuda profissionais a gerenciar clientes, agendamentos e análises faciais. O projeto possui front-end em React/TanStack e API REST em Flask, sem dependência do Supabase.
 
-1. Verificar saúde da API
-2. Listar clientes
-3. Cadastrar cliente
-4. Atualizar cliente
-5. Excluir cliente
-6. Pesquisar clientes por nome
-7. Listar agendamentos
-8. Filtrar agendamentos por data
-9. Criar agendamento
-10. Confirmar agendamento
-11. Marcar agendamento como pendente
-12. Excluir agendamento
-13. Listar análises de visagismo
-14. Filtrar análises por cliente
-15. Criar análise de visagismo
-16. Excluir análise
-17. Gerar relatório de total de análises
-18. Autenticar usuário
-19. Cadastrar perfil
-20. Atualizar perfil
-21. Cadastrar estabelecimento
-22. Atualizar senha
+## Funcionalidades do projeto
+
+### Acesso e conta
+
+- Criar conta com nome, e-mail, telefone e tipo de usuário.
+- Entrar com e-mail e senha.
+- Encerrar sessão.
+- Consultar a sessão do usuário autenticado.
+- Persistir usuários e senhas protegidas no banco SQLite.
+
+### Clientes
+
+- Cadastrar cliente.
+- Listar clientes.
+- Pesquisar clientes pelo nome.
+- Atualizar dados do cliente.
+- Excluir cliente.
+- Registrar a data da última visita.
+
+### Agenda
+
+- Criar agendamento.
+- Listar agendamentos.
+- Filtrar agendamentos por data.
+- Confirmar agendamento.
+- Marcar agendamento como pendente.
+- Excluir agendamento.
+
+### Visagismo e IA
+
+- Enviar foto para análise facial.
+- Gerar análise usando Gemini.
+- Retornar o formato do rosto.
+- Calcular o índice de simetria.
+- Recomendar cortes de cabelo.
+- Recomendar sobrancelhas.
+- Recomendar maquiagem.
+- Associar a análise a um cliente.
+- Salvar a análise no banco.
+- Listar análises por cliente.
+- Gerar relatório com o total de análises.
 
 ## Arquitetura
 
-O backend está em `backend/`, separado em `controllers/`, `services/`, `models/` e `repositories/`. O diagrama de classes está em [`docs/class-diagram.md`](docs/class-diagram.md). A API usa SQLite por padrão e aceita `DATABASE_URL` para outro banco.
+O front-end está em `src/` e mantém a interface original do projeto.
 
-## Execução
+O backend Flask está em `backend/`, separado em:
 
-```bash
-python -m venv .venv
-.venv/Scripts/pip install -r backend/requirements.txt
-python -m backend.run
-```
+- `controllers/`: recebe as requisições HTTP.
+- `services/`: executa os casos de uso e regras de negócio.
+- `models/`: representa as entidades e o banco SQLAlchemy.
+- `repositories/`: concentra consultas e persistência.
+- `services/ai_service.py`: integra a API Gemini.
 
-O front-end permanece com o mesmo visual. Para publicar o banco Supabase usado pela autenticação, consulte `BACKEND.md`.
+O diagrama de classes está em [`docs/class-diagram.md`](docs/class-diagram.md).
+
+## Como executar
+
+### Backend
+
+```powershell
+py -m pip install -r backend\requirements.txt
+py -m backend.run
