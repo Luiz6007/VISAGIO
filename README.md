@@ -1,5 +1,5 @@
 
-# Visagismo com IA
+# VISAGIO -- Visagismo com AI
 
 Aplicação web de visagismo que ajuda profissionais a gerenciar clientes, agendamentos e análises faciais. O projeto possui front-end em React/TanStack e API REST em Flask
 
