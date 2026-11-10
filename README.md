@@ -72,4 +72,4 @@ py -m backend.run
 
 codigo para mostrar o total de analise
 
-.\python312\python.exe -c "from backend.app import app; from backend.models import Analysis; ctx=app.app_context(); ctx.push(); print('Total de análises:', Analysis.query.count()); print('Resultados:', [a.to_dict() for a in Analysis.query.limit(5).all()]); ctx.pop()"
+python3 -c "from backend.app import app; from backend.models import Analysis; ctx=app.app_context(); ctx.push(); print('Total de análises:', Analysis.query.count()); print('Resultados:', [a.to_dict() for a in Analysis.query.limit(5).all()]); ctx.pop()"
